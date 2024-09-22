@@ -18,4 +18,14 @@ export const API_SOCIAL_POSTS = `${API_SOCIAL}/posts`;
 
 export const API_SOCIAL_PROFILES = `${API_SOCIAL}/profiles`;
 
-const REG_FORM = document.getElementById("register-form");
+//REGISTRATION PAGE CONSTANTS
+
+export const REG_FORM = document.getElementById("register-form");
+export const REG_FORM_OBJECT = new FormData(REG_FORM);
+export const REG_FORM_DATA = Object.fromEntries(REG_FORMObject);
+export const REQUEST_BODY = {
+  name: REG_FORM_DATA.name,
+  email: REG_FORM_DATA.email,
+  password: REG_FORM_DATA.password,
+};
+export const ERROR_MESSAGE = document.getElementById("error-message");
