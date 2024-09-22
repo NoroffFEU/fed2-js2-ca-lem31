@@ -22,10 +22,20 @@ export const API_SOCIAL_PROFILES = `${API_SOCIAL}/profiles`;
 
 export const REG_FORM = document.getElementById("register-form");
 export const REG_FORM_OBJECT = new FormData(REG_FORM);
-export const REG_FORM_DATA = Object.fromEntries(REG_FORMObject);
-export const REQUEST_BODY = {
+export const REG_FORM_DATA = Object.fromEntries(REG_FORM_OBJECT);
+export const REQUEST_BODY_REG = {
   name: REG_FORM_DATA.name,
   email: REG_FORM_DATA.email,
   password: REG_FORM_DATA.password,
 };
 export const ERROR_MESSAGE = document.getElementById("error-message");
+
+export const RESPONSE_REG = await fetch(API_AUTH_REGISTER, {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+  },
+  body: JSON.stringify(REQUEST_BODY_REG),
+});
+
+export const DATA = await RESPONSE_REG.json();
