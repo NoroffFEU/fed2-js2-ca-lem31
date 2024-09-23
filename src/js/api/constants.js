@@ -6,7 +6,7 @@ export const API_BASE = "https://v2.api.noroff.dev";
 
 export const API_AUTH = `${API_BASE}/auth`;
 
-export const API_AUTH_LOGIN = `${API_AUTH}/login`;
+export const API_AUTH_LOGIN = "https://v2.api.noroff.dev/auth/login";
 
 export const API_AUTH_REGISTER = `https://v2.api.noroff.dev/auth/register`;
 
@@ -18,8 +18,12 @@ export const API_SOCIAL_POSTS = `${API_SOCIAL}/posts`;
 
 export const API_SOCIAL_PROFILES = `${API_SOCIAL}/profiles`;
 
+export const ERROR_MESSAGE = document.getElementById("error-message");
+
 //REGISTRATION PAGE CONSTANTS
 
 export const REG_FORM = document.getElementById("register-form");
 
-export const ERROR_MESSAGE = document.getElementById("error-message");
+//LOGIN PAGE CONSTANTS
+
+export const LOGIN_FORM = document.getElementById("login-form");
