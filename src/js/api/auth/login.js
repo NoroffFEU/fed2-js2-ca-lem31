@@ -22,7 +22,7 @@ export async function login(event) {
 
     if (INFO) {
       localStorage.setItem("token", INFO.accessToken);
-      window.location.href = "./profile/index.html";
+      window.location.href = "../../profile/index.html";
 
       console.log("Full Response Data:", INFO);
       if (INFO.error) {
