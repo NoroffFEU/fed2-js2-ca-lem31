@@ -1,7 +1,7 @@
-import { onRegister } from "../../ui/auth/register";
+import { register } from "../api/auth/register.js";
 
-const form = document.forms.register;
+import { REG_FORM } from "../api/constants.mjs";
 
-form.addEventListener("submit", onRegister);
+REG_FORM.addEventListener("submit", register);
 
 // API CONSTANTS

@@ -38,4 +38,4 @@ export const RESPONSE_REG = await fetch(API_AUTH_REGISTER, {
   body: JSON.stringify(REQUEST_BODY_REG),
 });
 
-export const DATA = await RESPONSE_REG.json();
+export const REG_DATA = await RESPONSE_REG.json();
