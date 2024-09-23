@@ -1,38 +1,39 @@
-import { REG_FORM } from "./constants";
+import { API_AUTH_REGISTER } from "../constants.js";
 
-import { ERROR_MESSAGE } from "./constants";
-
-import { REG_FORM_OBJECT } from "./constants";
-
-import { REG_FORM_DATA } from "./constants";
-
-import { REQUEST_BODY_REG } from "./constants";
-
-import { RESPONSE_REG } from "./constants";
-
-import { REG_DATA } from "../constants.mjs";
+import { REG_FORM } from "../constants.js";
 
 export async function register(event) {
   event.preventDefault();
 
-  REG_FORM_OBJECT;
-  REG_FORM_DATA;
+  const REG_FORM_OBJECT = new FormData(REG_FORM);
+  const REG_FORM_DATA = Object.fromEntries(REG_FORM_OBJECT);
 
-  REQUEST_BODY_REG;
+  const REQUEST_BODY_REG = {
+    name: REG_FORM_DATA.name,
+    email: REG_FORM_DATA.email,
+    password: REG_FORM_DATA.password,
+  };
 
   try {
-    RESPONSE_REG;
+    const RESPONSE = await fetch(API_AUTH_REGISTER, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(REQUEST_BODY_REG),
+    });
+    const DATA = await RESPONSE.json();
 
-    REG_DATA;
+    console.log("Full RESPONSE DATA:", DATA);
 
-    if (RESPONSE_REG.ok) {
+    if (RESPONSE.ok) {
       alert("Registration successful");
-      console.log(REG_DATA);
-      window.location.href = ".../login.html";
+      console.log(DATA);
+      window.location.href = "login.html";
       ERROR_MESSAGE.textContent = "";
-    } else if (RESPONSE_REG.status === 400) {
+    } else if (RESPONSE.status === 400) {
       ERROR_MESSAGE.textContent = "Error: User already exists";
-    } else if (RESPONSE_REG.status === 409) {
+    } else if (RESPONSE.status === 409) {
       ERROR_MESSAGE.textContent = "Error: User already exists";
     } else {
       ERROR_MESSAGE.textContent = "Error: Something went wrong";
@@ -41,3 +42,33 @@ export async function register(event) {
     console.error("Error:", error);
   }
 }
+
+// export async function register(event) {
+//   event.preventDefault();
+
+//   REG_FORM_OBJECT;
+//   REG_FORM_DATA;
+
+//   REQUEST_BODY_REG;
+
+//   try {
+//     RESPONSE_REG;
+
+//     REG_DATA;
+
+//     if (RESPONSE_REG.ok) {
+//       alert("Registration successful");
+//       console.log(REG_DATA);
+//       window.location.href = ".../login.html";
+//       ERROR_MESSAGE.textContent = "";
+//     } else if (RESPONSE_REG.status === 400) {
+//       ERROR_MESSAGE.textContent = "Error: User already exists";
+//     } else if (RESPONSE_REG.status === 409) {
+//       ERROR_MESSAGE.textContent = "Error: User already exists";
+//     } else {
+//       ERROR_MESSAGE.textContent = "Error: Something went wrong";
+//     }
+//   } catch (error) {
+//     console.error("Error:", error);
+//   }
+// }
