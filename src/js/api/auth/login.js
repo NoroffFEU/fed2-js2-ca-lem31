@@ -4,6 +4,7 @@ import { ERROR_MESSAGE } from "../constants.js";
 
 export async function login(event) {
   event.preventDefault();
+
   const LOG_FORM = new FormData(LOGIN_FORM);
   const LOGIN_DATA = Object.fromEntries(LOG_FORM);
 
