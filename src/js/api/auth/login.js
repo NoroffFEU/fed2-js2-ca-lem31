@@ -1,6 +1,6 @@
-import { LOGIN_API } from "./constants.js";
-import { LOGIN_FORM } from "../constants";
-import { ERROR_MESSAGE } from "../constants";
+import { API_AUTH_LOGIN } from "../constants.js";
+import { LOGIN_FORM } from "../constants.js";
+import { ERROR_MESSAGE } from "../constants.js";
 
 export async function login(event) {
   event.preventDefault();
@@ -8,7 +8,7 @@ export async function login(event) {
   const LOGIN_DATA = Object.fromEntries(LOG_FORM);
 
   try {
-    const RESPONSE = await fetch(LOGIN_API, {
+    const RESPONSE = await fetch(API_AUTH_LOGIN, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

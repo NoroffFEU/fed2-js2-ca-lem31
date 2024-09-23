@@ -1,1 +1,7 @@
-export async function onLogin(event) {}
+import { login } from "../../api/auth/login.js";
+import { LOGIN_FORM } from "../../api/constants.js";
+
+export async function onLogin(event) {
+  login(event);
+  LOGIN_FORM.addEventListener("submit", login);
+}
