@@ -2,6 +2,8 @@ import { API_AUTH_REGISTER } from "../constants.js";
 
 import { REG_FORM } from "../constants.js";
 
+import { ERROR_MESSAGE } from "../constants.js";
+
 export async function register(event) {
   event.preventDefault();
 
@@ -29,7 +31,7 @@ export async function register(event) {
     if (RESPONSE.ok) {
       alert("Registration successful");
       console.log(DATA);
-      window.location.href = "login.html";
+      window.location.href = "../../auth/login/index.html";
       ERROR_MESSAGE.textContent = "";
     } else if (RESPONSE.status === 400) {
       ERROR_MESSAGE.textContent = "Error: User already exists";

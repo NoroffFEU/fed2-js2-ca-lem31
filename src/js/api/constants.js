@@ -21,3 +21,5 @@ export const API_SOCIAL_PROFILES = `${API_SOCIAL}/profiles`;
 //REGISTRATION PAGE CONSTANTS
 
 export const REG_FORM = document.getElementById("register-form");
+
+export const ERROR_MESSAGE = document.getElementById("error-message");
