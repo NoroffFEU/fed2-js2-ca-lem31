@@ -21,7 +21,7 @@ export async function login(event) {
     const INFO = USER_DATA.data;
 
     if (INFO) {
-      localStorage.setItem("token", INFO.accessToken);
+      localStorage.setItem("accessToken", INFO.accessToken);
       localStorage.setItem("user", JSON.stringify(INFO));
       window.location.href = "../../profile/index.html";
 

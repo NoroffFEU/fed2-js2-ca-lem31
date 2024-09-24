@@ -4,10 +4,12 @@ import router from "./js/router/index.js";
 
 await router(window.location.pathname);
 
+import { API_KEY } from "./js/api/constants.js";
+
 //Create all posts elements class/function
 export class CreateAllPostElements {
   constructor(post) {
-    const POSTS_CONTAINER = document.getElementById("my-blog-posts");
+    const POSTS_CONTAINER = document.getElementById("my-profile-posts");
 
     const INDIVIDUAL_POST_CONTAINER = document.createElement("div");
 
@@ -96,7 +98,7 @@ export async function getPosts(
     const RESPONSE = await fetch(apiEndpoint, {
       headers: {
         Authorization: `Bearer ${ACCESS_TOKEN}`,
-        "X-Noroff-API-Key": apiKey,
+        "X-Noroff-API-Key": API_KEY,
       },
     });
     const POSTS = await RESPONSE.json();
