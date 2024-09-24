@@ -22,6 +22,7 @@ export async function login(event) {
 
     if (INFO) {
       localStorage.setItem("token", INFO.accessToken);
+      localStorage.setItem("user", JSON.stringify(INFO));
       window.location.href = "../../profile/index.html";
 
       console.log("Full Response Data:", INFO);
@@ -32,7 +33,8 @@ export async function login(event) {
         ERROR_MESSAGE.innerHTML = "You have successfully logged in!";
       }
     } else {
-      ERROR_MESSAGE.innerHTML = "Login failed, please try again.";
+      ERROR_MESSAGE.innerHTML =
+        "Incorrect Username or password, please try again.";
     }
   } catch (error) {
     console.error("Error:", error);
