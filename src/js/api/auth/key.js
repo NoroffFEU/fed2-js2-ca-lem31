@@ -30,3 +30,9 @@ export async function getAPIKey() {
 }
 
 getAPIKey();
+
+//ACCESS TOKEN constants
+
+const getAuthToken = localStorage.getItem("accessToken");
+
+export const authToken = getAuthToken;
