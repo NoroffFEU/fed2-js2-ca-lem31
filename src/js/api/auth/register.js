@@ -31,7 +31,7 @@ export async function register(event) {
     if (RESPONSE.ok) {
       alert("Registration successful");
       console.log(DATA);
-      window.location.href = "../../auth/login/index.html";
+      window.location.href = "/auth/login/";
       ERROR_MESSAGE.textContent = "";
     } else if (RESPONSE.status === 400) {
       ERROR_MESSAGE.textContent = "Error: User already exists";
