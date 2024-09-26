@@ -4,7 +4,5 @@ import { getPosts } from "./home.js";
 
 //MY POSTS CONSTANTS AND FUNCTIONS
 
-// import { API_KEY } from "../../api/constants.js";
-
 authGuard();
 getPosts(USER_POSTS_API, null, false, true);
