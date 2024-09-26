@@ -1,6 +1,6 @@
 import { authGuard } from "../../utilities/authGuard.js";
-import { getSpecifiedFormDataAndSendToAPI } from "../../api/post/update.js";
 import { displayEditForm } from "../../api/post/update.js";
+import { getSpecifiedFormDataAndSendToAPI } from "../../api/post/update.js";
 
 authGuard();
 
