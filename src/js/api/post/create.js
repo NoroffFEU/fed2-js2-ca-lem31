@@ -1,5 +1,5 @@
 import { API_KEY } from "../constants";
-import { CREATE_POST_API } from "../constants";
+import { CREATE_POST_API } from "../constants.js";
 
 const CREATE_POST_FORM = document.getElementById("create-form");
 
