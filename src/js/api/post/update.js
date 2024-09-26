@@ -97,7 +97,7 @@ async function sendRequestToAPI(REQUEST_BODY, operation, POST_ID) {
 function handleRESPONSE(DATA, operation) {
   console.log("Full RESPONSE DATA:", DATA);
   alert(`Post ${operation} processed successfully`);
-  window.location.href = "myPosts.html";
+  window.location.href = "/profile/";
 }
 
 function handleError(error) {
