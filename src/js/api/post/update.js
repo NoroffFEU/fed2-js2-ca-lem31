@@ -45,7 +45,7 @@ async function sendRequestToAPI(UPDATE_POST_REQUEST_BODY) {
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${ACCESS_TOKEN}`,
-        "X-Noroff-API-Key": apiKey,
+        "X-Noroff-API-Key": API_KEY,
       },
       body: JSON.stringify(UPDATE_POST_REQUEST_BODY),
     });
@@ -61,7 +61,6 @@ async function sendRequestToAPI(UPDATE_POST_REQUEST_BODY) {
 }
 function handleError(error) {
   console.error("Error:", error);
-  const ERROR_MESSAGE = document.getElementById("error-message");
   if (ERROR_MESSAGE) {
     ERROR_MESSAGE.textContent = `Error: ${
       error.message || "Something went wrong"
