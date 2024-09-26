@@ -10,7 +10,7 @@ export const API_AUTH_LOGIN = "https://v2.api.noroff.dev/auth/login";
 
 export const API_AUTH_REGISTER = `https://v2.api.noroff.dev/auth/register`;
 
-export const API_AUTH_KEY = `${API_AUTH}/create-api-key`;
+export const CREATE_POST_API = "https://v2.api.noroff.dev/social/posts";
 
 export const API_SOCIAL = `${API_BASE}/social`;
 
