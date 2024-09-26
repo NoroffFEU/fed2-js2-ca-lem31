@@ -1,3 +1,11 @@
+import { API_KEY } from "../constants";
+
+//Error Message constant
+const ERROR_MESSAGE =
+  document.getElementById("error-message") || document.createElement("p");
+
+const createPostAPI = "https://v2.api.noroff.dev/social/posts";
+
 // Function for getting the form data and sending it to the API
 
 export async function getSpecifiedFormDataAndSendToAPI(
@@ -10,6 +18,7 @@ export async function getSpecifiedFormDataAndSendToAPI(
   try {
     const REQUEST_BODY =
       operation !== "delete" ? createRequestBody(formElement) : null;
+    console.log(REQUEST_BODY);
     const RESPONSE = await sendRequestToAPI(REQUEST_BODY, operation, POST_ID);
     handleRESPONSE(RESPONSE, operation);
   } catch (error) {
@@ -65,7 +74,7 @@ async function sendRequestToAPI(REQUEST_BODY, operation, POST_ID) {
     headers: {
       "Content-Type": "application/json",
       Authorization: `Bearer ${ACCESS_TOKEN}`,
-      "X-Noroff-API-Key": apiKey,
+      "X-Noroff-API-Key": API_KEY,
     },
   };
 
@@ -193,3 +202,6 @@ export function displayEditForm(post) {
     getSpecifiedFormDataAndSendToAPI(event, form, "update", post.id)
   );
 }
+
+let updatePostAPI;
+let deletePostAPI;
