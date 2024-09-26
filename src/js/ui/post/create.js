@@ -1,14 +1,10 @@
-import { getSpecifiedFormDataAndSendToAPI } from "../../api/post/update";
+import { getCreatePostDataAndSendToAPI } from "../../api/post/create";
 
-function createPost() {
-  const createPostForm = document.getElementById("create-form");
-  if (createPostForm) {
-    createPostForm.addEventListener("submit", (event) =>
-      getSpecifiedFormDataAndSendToAPI(event, createPostForm, "create")
+export function onCreatePost() {
+  const CREATE_POST_FORM = document.getElementById("create-form");
+  if (CREATE_POST_FORM) {
+    CREATE_POST_FORM.addEventListener("submit", (event) =>
+      getCreatePostDataAndSendToAPI(event)
     );
   }
-}
-
-export async function onCreatePost(event) {
-  createPost(event);
 }
