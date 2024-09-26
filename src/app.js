@@ -1,15 +1,15 @@
-// import "./css/style.css";
+import "./css/style.css";
 
 import router from "./js/router/index.js";
 
 await router(window.location.pathname);
 
-import { API_KEY } from "./js/api/constants.js";
+const API_KEY = "25afc7c1-31c2-43ed-9dac-bbb6249bb706";
 
-//Create all posts elements class/function
+// Create all posts elements class/function
 export class CreateAllPostElements {
   constructor(post) {
-    const POSTS_CONTAINER = document.getElementById("my-profile-posts");
+    const POSTS_CONTAINER = document.getElementById("my-blog-posts");
 
     const INDIVIDUAL_POST_CONTAINER = document.createElement("div");
 
@@ -50,21 +50,21 @@ export class CreateMyPostsElements extends CreateAllPostElements {
   constructor(post) {
     const INDIVIDUAL_POST_CONTAINER = super(post);
 
-    const EDIT_BUTTON = document.createElement("button");
-    const DELETE_BUTTON = document.createElement("button");
+    const editButton = document.createElement("button");
+    const deleteButton = document.createElement("button");
     const POST_CONTAINER = document.createElement("div");
 
-    EDIT_BUTTON.textContent = "Edit";
-    DELETE_BUTTON.textContent = "Delete";
+    editButton.textContent = "Edit";
+    deleteButton.textContent = "Delete";
 
-    EDIT_BUTTON.dataset.id = post.id;
-    DELETE_BUTTON.dataset.id = post.id;
+    editButton.dataset.id = post.id;
+    deleteButton.dataset.id = post.id;
 
-    EDIT_BUTTON.classList.add("edit-button");
-    DELETE_BUTTON.classList.add("delete-button");
+    editButton.classList.add("edit-button");
+    deleteButton.classList.add("delete-button");
 
-    EDIT_BUTTON.addEventListener("click", () => displayEditForm(post));
-    DELETE_BUTTON.addEventListener("click", () =>
+    editButton.addEventListener("click", () => displayEditForm(post));
+    deleteButton.addEventListener("click", () =>
       getSpecifiedFormDataAndSendToAPI(
         new Event("submit"),
         null,
@@ -73,16 +73,15 @@ export class CreateMyPostsElements extends CreateAllPostElements {
       )
     );
 
-    POST_CONTAINER.appendChild(EDIT_BUTTON);
-    POST_CONTAINER.appendChild(DELETE_BUTTON);
+    POST_CONTAINER.appendChild(editButton);
+    POST_CONTAINER.appendChild(deleteButton);
     INDIVIDUAL_POST_CONTAINER.appendChild(POST_CONTAINER);
 
     return INDIVIDUAL_POST_CONTAINER;
   }
 }
 
-//Get Posts function
-
+// Get Posts function
 export async function getPosts(
   apiEndpoint,
   filterTag = null,
@@ -101,12 +100,12 @@ export async function getPosts(
         "X-Noroff-API-Key": API_KEY,
       },
     });
-    const POSTS = await RESPONSE.json();
-    console.log(POSTS);
+    const posts = await RESPONSE.json();
+    console.log(posts);
 
-    const ALL_USERS_POSTS = POSTS.data || [];
+    const allUsersPosts = posts.data || [];
 
-    let filteredPosts = ALL_USERS_POSTS;
+    let filteredPosts = allUsersPosts;
 
     localStorage.setItem("posts", JSON.stringify(filteredPosts));
 
