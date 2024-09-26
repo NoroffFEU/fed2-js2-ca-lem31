@@ -1,9 +1,10 @@
-import { authGuard } from "../../utilities/authGuard";
-import { getPosts } from "../../../app.js";
+import { authGuard } from "../../utilities/authGuard.js";
 import { USER_POSTS_API } from "../../api/constants.js";
-
-authGuard();
+import { getPosts } from "./home.js";
 
 //MY POSTS CONSTANTS AND FUNCTIONS
 
+// import { API_KEY } from "../../api/constants.js";
+
+authGuard();
 getPosts(USER_POSTS_API, null, false, true);
