@@ -1,4 +1,6 @@
 import { authGuard } from "../../utilities/authGuard.js";
+import { getSpecifiedFormDataAndSendToAPI } from "../../api/post/update.js";
+import { displayEditForm } from "../../api/post/update.js";
 
 authGuard();
 
@@ -61,7 +63,9 @@ export class CreateMyPostsElements extends CreateAllPostElements {
     editButton.classList.add("edit-button");
     deleteButton.classList.add("delete-button");
 
-    editButton.addEventListener("click", () => displayEditForm(post));
+    editButton.addEventListener("click", () => {
+      displayEditForm(post);
+    });
     deleteButton.addEventListener("click", () =>
       getSpecifiedFormDataAndSendToAPI(
         new Event("submit"),
