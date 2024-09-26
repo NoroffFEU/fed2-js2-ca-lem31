@@ -45,10 +45,13 @@ async function sendRequestToAPI(CREATE_POST_REQUEST_BODY) {
       body: JSON.stringify(CREATE_POST_REQUEST_BODY),
     });
 
-    alert("Post created successfully");
-    window.location.href = "/profile/";
+    if (!RESPONSE.ok) {
+      throw new Error("Failed to create post");
+    }
 
     const DATA = await RESPONSE.json();
+    alert("Post created successfully");
+    window.location.href = "/profile/";
     return DATA;
   } catch (error) {
     handleError(error);
