@@ -1,7 +1,7 @@
 import { authGuard } from "../../utilities/authGuard.js";
-import { displayEditForm } from "../../api/post/update.js";
-import { getSpecifiedFormDataAndSendToAPI } from "../../api/post/update.js";
+// import { getSpecifiedFormDataAndSendToAPI } from "../../api/post/update.js";
 import { API_KEY } from "../../api/constants.js";
+// import { onUpdatePost } from "./postEdit.js";
 
 authGuard();
 
@@ -58,13 +58,14 @@ export class CreateMyPostsElements extends CreateAllPostElements {
 
     editButton.dataset.id = post.id;
     deleteButton.dataset.id = post.id;
-
     editButton.classList.add("edit-button");
-    deleteButton.classList.add("delete-button");
 
     editButton.addEventListener("click", () => {
-      displayEditForm(post);
+      window.location.href = `/post/edit/?id=${post.id}`;
     });
+
+    deleteButton.classList.add("delete-button");
+
     deleteButton.addEventListener("click", () =>
       getSpecifiedFormDataAndSendToAPI(
         new Event("submit"),

@@ -7,10 +7,16 @@ export async function getUpdatePostDataAndSendToAPI(event) {
   try {
     const EDIT_FORM = document.getElementById("edit-form");
     const UPDATE_POST_REQUEST_BODY = createRequestBody(EDIT_FORM);
+
+    const post = JSON.parse(localStorage.getItem("clickedPost"));
+    if (!post || !post.id) {
+      throw new Error("Post ID not found in localStorage.");
+    }
     const RESPONSE = await sendRequestToAPI(UPDATE_POST_REQUEST_BODY);
     handleResponse(RESPONSE);
   } catch (error) {
     handleError(error);
+    throw error;
   }
 }
 
@@ -39,8 +45,13 @@ async function sendRequestToAPI(UPDATE_POST_REQUEST_BODY) {
   if (!ACCESS_TOKEN) {
     throw new Error("No access token found. Please log in.");
   }
+  const post = JSON.parse(localStorage.getItem("clickedPost")) || {};
+  if (!post || !post.id) {
+    throw new Error("Post ID not found in localStorage.");
+  }
+
   try {
-    const RESPONSE = await fetch(UPDATE_POST_API(localStorage.getItem("id")), {
+    const RESPONSE = await fetch(UPDATE_POST_API(post), {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -51,7 +62,7 @@ async function sendRequestToAPI(UPDATE_POST_REQUEST_BODY) {
     });
 
     alert("Post successfully updated!");
-    window.location.href = "myPosts.html";
+    window.location.href = "/profile/";
 
     const DATA = await RESPONSE.json();
     return DATA;
