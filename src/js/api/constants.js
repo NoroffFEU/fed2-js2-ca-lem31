@@ -12,6 +12,9 @@ export const API_AUTH_REGISTER = `https://v2.api.noroff.dev/auth/register`;
 
 export const CREATE_POST_API = "https://v2.api.noroff.dev/social/posts";
 
+export const UPDATE_POST_API = (POST_ID) =>
+  `https://v2.api.noroff.dev/social/posts/${POST_ID}`;
+
 export const API_SOCIAL = `${API_BASE}/social`;
 
 const USER_NAME = JSON.parse(localStorage.getItem("user")) || {};
