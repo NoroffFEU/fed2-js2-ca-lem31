@@ -30,7 +30,6 @@ function createRequestBody(EDIT_FORM) {
 }
 function handleResponse(RESPONSE) {
   if (RESPONSE.ok) {
-    // alert and redirection handled in handleResponse
   } else {
     throw new Error("Failed to update post");
   }
