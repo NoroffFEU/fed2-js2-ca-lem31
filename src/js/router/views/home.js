@@ -1,10 +1,9 @@
 import { authGuard } from "../../utilities/authGuard.js";
 import { displayEditForm } from "../../api/post/update.js";
 import { getSpecifiedFormDataAndSendToAPI } from "../../api/post/update.js";
+import { API_KEY } from "../../api/constants.js";
 
 authGuard();
-
-const API_KEY = "25afc7c1-31c2-43ed-9dac-bbb6249bb706";
 
 // Create all posts elements class/function
 export class CreateAllPostElements {
