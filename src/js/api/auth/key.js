@@ -1,7 +1,5 @@
 export const apiKeyAPI = "https://v2.api.noroff.dev/auth/create-api-key";
 
-export const apiKey = "25afc7c1-31c2-43ed-9dac-bbb6249bb706";
-
 const apiKeyName = { name: "my cool api key" };
 
 export async function getAPIKey() {
