@@ -2,6 +2,7 @@ import { authGuard } from "../../utilities/authGuard.js";
 import { USER_POSTS_API } from "../../api/constants.js";
 import { CreateMyPostsElements } from "./home.js";
 import { headers } from "../../api/headers.js";
+import { getUserProfile } from "../../api/profile/read.js";
 
 //MY POSTS CONSTANTS AND FUNCTIONS
 
@@ -27,7 +28,7 @@ export async function getUserPosts() {
     const data = await RESPONSE.json();
     console.log("Fetched data:", data);
 
-    const posts = data.data;
+    const posts = data.data || [];
 
     localStorage.setItem("posts", JSON.stringify(posts));
 
@@ -47,4 +48,5 @@ export async function getUserPosts() {
   }
 }
 
+getUserProfile();
 getUserPosts();
