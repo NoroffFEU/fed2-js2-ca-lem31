@@ -78,17 +78,3 @@ function displaySinglePost(post) {
 
   CONTAINER_WRAPPER.appendChild(POST_CONTAINER);
 }
-
-export function retrievePostID() {
-  document.addEventListener("DOMContentLoaded", () => {
-    const PARAMS = new URLSearchParams(window.location.search);
-    const POST_ID = PARAMS.get("id");
-    console.log(POST_ID);
-
-    if (POST_ID) {
-      getSinglePost(POST_ID);
-    } else {
-      console.error("No post ID found in URL");
-    }
-  });
-}
