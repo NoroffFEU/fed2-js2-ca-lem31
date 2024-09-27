@@ -1,4 +1,3 @@
-import { API_KEY } from "../constants";
 import { headers } from "../headers.js";
 
 export async function populateEditForm() {
