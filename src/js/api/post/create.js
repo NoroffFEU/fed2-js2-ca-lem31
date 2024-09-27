@@ -1,6 +1,7 @@
 import { API_KEY } from "../constants";
 import { CREATE_POST_API } from "../constants.js";
 import { ERROR_MESSAGE } from "../constants.js";
+import { headers } from "../headers.js";
 
 const CREATE_POST_FORM = document.getElementById("create-form");
 
@@ -37,11 +38,7 @@ async function sendRequestToAPI(CREATE_POST_REQUEST_BODY) {
   try {
     const RESPONSE = await fetch(CREATE_POST_API, {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${ACCESS_TOKEN}`,
-        "X-Noroff-API-Key": API_KEY,
-      },
+      headers: headers(),
       body: JSON.stringify(CREATE_POST_REQUEST_BODY),
     });
 
