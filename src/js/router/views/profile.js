@@ -1,7 +1,7 @@
 import { authGuard } from "../../utilities/authGuard.js";
 import { USER_POSTS_API } from "../../api/constants.js";
-import { CreateAllPostElements, CreateMyPostsElements } from "./home.js";
-import { API_KEY } from "../../api/constants.js";
+import { CreateMyPostsElements } from "./home.js";
+import { headers } from "../../api/headers.js";
 
 //MY POSTS CONSTANTS AND FUNCTIONS
 
@@ -16,10 +16,7 @@ export async function getUserPosts() {
 
     const RESPONSE = await fetch(USER_POSTS_API, {
       method: "GET",
-      headers: {
-        Authorization: `Bearer ${ACCESS_TOKEN}`,
-        "X-Noroff-API-Key": API_KEY,
-      },
+      headers: headers(),
     });
 
     if (!RESPONSE.ok) {
