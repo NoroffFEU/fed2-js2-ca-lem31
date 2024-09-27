@@ -1,5 +1,5 @@
 import { API_KEY } from "../constants";
-import { ACCESS_TOKEN } from "../constants";
+import { headers } from "../headers";
 
 export async function getSinglePost(POST_ID) {
   try {
@@ -12,10 +12,7 @@ export async function getSinglePost(POST_ID) {
       `https://v2.api.noroff.dev/social/posts/${POST_ID}`,
       {
         method: "GET",
-        headers: {
-          Authorization: `Bearer ${ACCESS_TOKEN}`,
-          "X-Noroff-API-Key": API_KEY,
-        },
+        headers: headers(),
       }
     );
 
