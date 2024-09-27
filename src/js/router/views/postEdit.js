@@ -1,6 +1,6 @@
-import { authGuard } from "../../utilities/authGuard";
-
-import { createEditFormHTML } from "../../ui/post/update.js";
-import { API_KEY } from "../../api/constants.js";
+import { authGuard } from "../../utilities/authGuard.js";
+import { populateEditForm } from "../../api/post/update.js";
 
 authGuard();
+
+populateEditForm();
