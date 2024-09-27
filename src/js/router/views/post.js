@@ -1,5 +1,3 @@
-// import { retrievePostID } from "../../api/post/read.js";
-import { API_KEY } from "../../api/constants.js";
 import { getSinglePost } from "../../api/post/read.js";
 
 export function retrievePostID() {
