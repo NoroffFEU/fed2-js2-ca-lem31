@@ -27,3 +27,58 @@ export async function populateEditForm() {
     }
   }
 }
+
+export function updatePost() {
+  document
+    .querySelector("#update-post-button")
+    .addEventListener("click", async (event) => {
+      event.preventDefault();
+
+      const postId = new URLSearchParams(window.location.search).get("id");
+      const title = document.querySelector("#title").value;
+      const body = document.querySelector("#body").value;
+      const tags = document
+        .querySelector("#tags")
+        .value.split(",")
+        .map((tag) => tag.trim());
+      const mediaUrl = document.querySelector("#media").value;
+      const mediaAlt = document.querySelector("#alt").value;
+
+      const updatedPost = {
+        title,
+        body,
+        tags,
+        media: {
+          url: mediaUrl,
+          alt: mediaAlt,
+        },
+      };
+
+      try {
+        const response = await fetch(
+          `https://v2.api.noroff.dev/social/posts/${postId}`,
+          {
+            method: "PUT",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+              "X-Noroff-API-Key": API_KEY,
+            },
+            body: JSON.stringify(updatedPost),
+          }
+        );
+
+        if (response.ok) {
+          alert("Post updated successfully!");
+          window.location.href = `/profile/`;
+        } else {
+          const errorData = await response.json();
+          console.error("Error updating post:", errorData);
+          alert("Failed to update post. Please try again.");
+        }
+      } catch (error) {
+        console.error("Error updating post:", error);
+        alert("An error occurred while updating the post. Please try again.");
+      }
+    });
+}
