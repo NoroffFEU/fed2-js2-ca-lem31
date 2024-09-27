@@ -1,4 +1,5 @@
 import { API_KEY } from "../constants";
+import { headers } from "../headers.js";
 
 export async function populateEditForm() {
   const urlParams = new URLSearchParams(window.location.search);
@@ -9,10 +10,7 @@ export async function populateEditForm() {
       const response = await fetch(
         `https://v2.api.noroff.dev/social/posts/${postId}`,
         {
-          headers: {
-            Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-            "X-Noroff-API-Key": API_KEY,
-          },
+          headers: headers(),
         }
       );
       const post = await response.json();
@@ -59,11 +57,7 @@ export function updatePost() {
           `https://v2.api.noroff.dev/social/posts/${postId}`,
           {
             method: "PUT",
-            headers: {
-              "Content-Type": "application/json",
-              Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-              "X-Noroff-API-Key": API_KEY,
-            },
+            headers: headers(),
             body: JSON.stringify(updatedPost),
           }
         );
