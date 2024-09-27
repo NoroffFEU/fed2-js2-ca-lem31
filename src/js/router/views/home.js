@@ -3,7 +3,7 @@ import { API_KEY } from "../../api/constants.js";
 import { displayPostIDInURLOnEditPage } from "../../ui/post/update.js";
 import { logout } from "../../ui/global/logout.js";
 import { deletePost } from "../../ui/post/delete.js";
-import { GET_POST_API } from "../../api/constants.js";
+import { headers } from "../../api/headers.js";
 
 authGuard();
 logout();
@@ -91,10 +91,7 @@ export async function getAllPosts() {
       "https://v2.api.noroff.dev/social/posts?_tag=MEYERAPP",
       {
         method: "GET",
-        headers: {
-          Authorization: `Bearer ${ACCESS_TOKEN}`,
-          "X-Noroff-API-Key": API_KEY,
-        },
+        headers: headers(),
       }
     );
 
