@@ -3,6 +3,7 @@ import { API_KEY } from "../../api/constants.js";
 import { displayPostIDInURLOnEditPage } from "../../ui/post/update.js";
 import { logout } from "../../ui/global/logout.js";
 import { deletePost } from "../../ui/post/delete.js";
+import { GET_POST_API } from "../../api/constants.js";
 
 authGuard();
 logout();
@@ -11,6 +12,9 @@ logout();
 export class CreateAllPostElements {
   constructor(post) {
     const POSTS_CONTAINER = document.getElementById("posts-container");
+    if (!POSTS_CONTAINER) {
+      throw new Error("Posts container element not found");
+    }
 
     const INDIVIDUAL_POST_CONTAINER = document.createElement("div");
 
@@ -79,14 +83,9 @@ export class CreateMyPostsElements extends CreateAllPostElements {
     return INDIVIDUAL_POST_CONTAINER;
   }
 }
+//GET POSTS FUNCTION
 
-// Get Posts function
-export async function getPosts(
-  apiEndpoint,
-  filterTag = null,
-  showRecent = false,
-  myPosts = false
-) {
+export async function getPosts(apiEndpoint, showRecent, myPosts) {
   try {
     const ACCESS_TOKEN = localStorage.getItem("accessToken");
     if (!ACCESS_TOKEN) {
@@ -94,43 +93,48 @@ export async function getPosts(
     }
 
     const RESPONSE = await fetch(apiEndpoint, {
+      method: "GET",
       headers: {
         Authorization: `Bearer ${ACCESS_TOKEN}`,
         "X-Noroff-API-Key": API_KEY,
       },
     });
-    const posts = await RESPONSE.json();
-    console.log(posts);
 
-    const allUsersPosts = posts.data || [];
+    if (!RESPONSE.ok) {
+      throw new Error(`HTTP error! status: ${RESPONSE.status}`);
+    }
+
+    const data = await RESPONSE.json();
+    console.log("Fetched data:", data);
+
+    const posts = data.data || data;
+
+    const allUsersPosts = posts.data || posts;
+    console.log("All users' posts:", allUsersPosts);
 
     let filteredPosts = allUsersPosts;
-
-    localStorage.setItem("posts", JSON.stringify(filteredPosts));
-
-    if (filterTag) {
-      filteredPosts = filteredPosts.filter((post) =>
-        post.tags.includes(filterTag)
-      );
-    }
 
     if (showRecent) {
       filteredPosts = filteredPosts.slice(0, 12);
     }
 
+    localStorage.setItem("posts", JSON.stringify(filteredPosts));
+    console.log("Filtered posts:", filteredPosts);
+
     filteredPosts.forEach((post) => {
-      if (myPosts) {
-        new CreateMyPostsElements(post);
-      } else {
-        new CreateAllPostElements(post);
+      try {
+        if (myPosts) {
+          new CreateMyPostsElements(post);
+        } else {
+          new CreateAllPostElements(post);
+        }
+      } catch (error) {
+        console.error("Error creating post elements:", error, post);
       }
     });
   } catch (error) {
-    console.error(error);
+    console.error("Error fetching posts:", error);
   }
 }
 
-localStorage.getItem("accessToken");
-console.log("Access Token:", localStorage.getItem("accessToken"));
-
-getPosts("https://v2.api.noroff.dev/social/posts", "MEYERAPP", false, true);
+getPosts("https://v2.api.noroff.dev/social/posts?_tag=MEYERAPP", true, false);
