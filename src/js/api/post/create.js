@@ -1,5 +1,6 @@
 import { API_KEY } from "../constants";
 import { CREATE_POST_API } from "../constants.js";
+import { ERROR_MESSAGE } from "../constants.js";
 
 const CREATE_POST_FORM = document.getElementById("create-form");
 
@@ -7,8 +8,7 @@ export async function getCreatePostDataAndSendToAPI(event) {
   event.preventDefault();
   try {
     const CREATE_POST_REQUEST_BODY = createRequestBody(CREATE_POST_FORM);
-    const RESPONSE = await sendRequestToAPI(CREATE_POST_REQUEST_BODY);
-    handleResponse(RESPONSE);
+    await sendRequestToAPI(CREATE_POST_REQUEST_BODY);
   } catch (error) {
     handleError(error);
   }
