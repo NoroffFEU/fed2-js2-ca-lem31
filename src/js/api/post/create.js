@@ -58,7 +58,7 @@ async function sendRequestToAPI(CREATE_POST_REQUEST_BODY) {
   }
 }
 
-function handleError(error) {
+export function handleError(error) {
   console.error("Error:", error);
   if (ERROR_MESSAGE) {
     ERROR_MESSAGE.textContent = `Error: ${
