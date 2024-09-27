@@ -2,6 +2,7 @@ import { authGuard } from "../../utilities/authGuard.js";
 import { API_KEY } from "../../api/constants.js";
 import { displayPostIDInURLOnEditPage } from "../../ui/post/update.js";
 import { logout } from "../../ui/global/logout.js";
+import { deletePost } from "../../ui/post/delete.js";
 
 authGuard();
 logout();
@@ -72,14 +73,7 @@ export class CreateMyPostsElements extends CreateAllPostElements {
 
     deleteButton.classList.add("delete-button");
 
-    deleteButton.addEventListener("click", () =>
-      getSpecifiedFormDataAndSendToAPI(
-        new Event("submit"),
-        null,
-        "delete",
-        post.id
-      )
-    );
+    deleteButton.addEventListener("click", deletePost);
 
     POST_CONTAINER.appendChild(editButton);
     POST_CONTAINER.appendChild(deleteButton);
