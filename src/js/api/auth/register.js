@@ -4,6 +4,8 @@ import { REG_FORM } from "../constants.js";
 
 import { ERROR_MESSAGE } from "../constants.js";
 
+import { headers } from "../headers.js";
+
 export async function register(event) {
   event.preventDefault();
 
@@ -19,9 +21,7 @@ export async function register(event) {
   try {
     const RESPONSE = await fetch(API_AUTH_REGISTER, {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
+      headers: headers(),
       body: JSON.stringify(REQUEST_BODY_REG),
     });
     const DATA = await RESPONSE.json();
