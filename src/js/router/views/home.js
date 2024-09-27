@@ -1,8 +1,10 @@
 import { authGuard } from "../../utilities/authGuard.js";
 import { API_KEY } from "../../api/constants.js";
 import { displayPostIDInURLOnEditPage } from "../../ui/post/update.js";
+import { logout } from "../../ui/global/logout.js";
 
 authGuard();
+logout();
 
 // Create all posts elements class/function
 export class CreateAllPostElements {
