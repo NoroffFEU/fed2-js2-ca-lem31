@@ -5,4 +5,4 @@ import { getPosts } from "./home.js";
 //MY POSTS CONSTANTS AND FUNCTIONS
 
 authGuard();
-getPosts(USER_POSTS_API, null, false, true);
+getPosts(USER_POSTS_API, false, true);
