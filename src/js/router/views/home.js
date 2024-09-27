@@ -17,6 +17,9 @@ export class CreateAllPostElements {
     const POST_TAGS = document.createElement("p");
     const POST_IMAGE = document.createElement("img");
 
+    const VIEW_POST_BUTTON = document.createElement("button");
+    VIEW_POST_BUTTON.textContent = "View post";
+
     POST_TITLE.textContent = post.title || "No title available";
     POST_BODY.textContent = post.body || "No content available";
     POST_TAGS.textContent = post.tags
@@ -32,10 +35,15 @@ export class CreateAllPostElements {
     INDIVIDUAL_POST_CONTAINER.appendChild(POST_BODY);
     INDIVIDUAL_POST_CONTAINER.appendChild(POST_TAGS);
     INDIVIDUAL_POST_CONTAINER.appendChild(POST_IMAGE);
+    INDIVIDUAL_POST_CONTAINER.appendChild(VIEW_POST_BUTTON);
 
     container.appendChild(INDIVIDUAL_POST_CONTAINER);
 
     POST_IMAGE.addEventListener("click", () => {
+      window.location.href = `/post/?id=${post.id}`;
+    });
+
+    VIEW_POST_BUTTON.addEventListener("click", () => {
       window.location.href = `/post/?id=${post.id}`;
     });
 
