@@ -24,8 +24,3 @@ export async function removePostFromAPI(postId) {
     handleError(error);
   }
 }
-
-function deletePost(event) {
-  const POST_ID = event.target.dataset.id;
-  removePostFromAPI(POST_ID);
-}
