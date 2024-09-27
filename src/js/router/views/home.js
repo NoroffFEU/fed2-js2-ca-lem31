@@ -1,8 +1,5 @@
 import { authGuard } from "../../utilities/authGuard.js";
-// import { getSpecifiedFormDataAndSendToAPI } from "../../api/post/update.js";
 import { API_KEY } from "../../api/constants.js";
-// import { onUpdatePost } from "./postEdit.js";
-
 import { displayPostIDInURLOnEditPage } from "../../ui/post/update.js";
 
 authGuard();
@@ -63,8 +60,10 @@ export class CreateMyPostsElements extends CreateAllPostElements {
     INDIVIDUAL_POST_CONTAINER.dataset.id = post.id;
 
     editButton.addEventListener("click", (event) => {
-      const POST_ID = event.target.closest(".my-post").dataset.id;
-      window.location.href = `/post/edit/?id=${POST_ID}`;
+      // const POST_ID = event.target.closest(".my-post").dataset.id;
+      // window.location.href = `/post/edit/?id=${POST_ID}`;
+
+      displayPostIDInURLOnEditPage(event);
     });
     deleteButton.dataset.id = post.id;
     editButton.classList.add("edit-button");
