@@ -37,7 +37,7 @@ export class CreateAllPostElements {
     container.appendChild(INDIVIDUAL_POST_CONTAINER);
 
     POST_IMAGE.addEventListener("click", () => {
-      window.location.href = `post.html?id=${post.id}`;
+      window.location.href = `/post/?id=${post.id}`;
     });
 
     return INDIVIDUAL_POST_CONTAINER;
