@@ -16,6 +16,8 @@ export const GET_POST_API = `https://v2.api.noroff.dev/social/posts/`;
 
 export const API_SOCIAL = `${API_BASE}/social`;
 
+export const ACCESS_TOKEN = localStorage.getItem("accessToken");
+
 const USER_NAME = JSON.parse(localStorage.getItem("user")) || {};
 
 const NAME = USER_NAME.name || "defaultName";
