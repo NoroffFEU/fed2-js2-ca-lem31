@@ -1,4 +1,3 @@
-import { API_KEY } from "../constants";
 import { CREATE_POST_API } from "../constants.js";
 import { ERROR_MESSAGE } from "../constants.js";
 import { headers } from "../headers.js";
