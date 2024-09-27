@@ -12,17 +12,16 @@ export const API_AUTH_REGISTER = `https://v2.api.noroff.dev/auth/register`;
 
 export const CREATE_POST_API = "https://v2.api.noroff.dev/social/posts";
 
-export const GET_POST_API = `https://v2.api.noroff.dev/social/posts/`;
-
-export const API_SOCIAL = `${API_BASE}/social`;
-
-export const ACCESS_TOKEN = localStorage.getItem("accessToken");
+export const GET_POST_API = "https://v2.api.noroff.dev/social/posts/";
 
 const USER_NAME = JSON.parse(localStorage.getItem("user")) || {};
 
 const NAME = USER_NAME.name || "defaultName";
 
+export const API_SOCIAL = `${API_BASE}/social`;
 export const USER_POSTS_API = `https://v2.api.noroff.dev/social/profiles/${NAME}/posts`;
+
+export const ACCESS_TOKEN = localStorage.getItem("accessToken");
 
 // export const API_SOCIAL_PROFILES = `;
 
