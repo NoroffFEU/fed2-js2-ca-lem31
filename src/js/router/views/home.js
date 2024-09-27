@@ -3,6 +3,8 @@ import { authGuard } from "../../utilities/authGuard.js";
 import { API_KEY } from "../../api/constants.js";
 // import { onUpdatePost } from "./postEdit.js";
 
+import { displayPostIDInURLOnEditPage } from "../../ui/post/update.js";
+
 authGuard();
 
 // Create all posts elements class/function
@@ -53,16 +55,19 @@ export class CreateMyPostsElements extends CreateAllPostElements {
     const deleteButton = document.createElement("button");
     const POST_CONTAINER = document.createElement("div");
 
+    INDIVIDUAL_POST_CONTAINER.classList.add("my-post");
+
     editButton.textContent = "Edit";
     deleteButton.textContent = "Delete";
 
-    editButton.dataset.id = post.id;
+    INDIVIDUAL_POST_CONTAINER.dataset.id = post.id;
+
+    editButton.addEventListener("click", (event) => {
+      const POST_ID = event.target.closest(".my-post").dataset.id;
+      window.location.href = `/post/edit/?id=${POST_ID}`;
+    });
     deleteButton.dataset.id = post.id;
     editButton.classList.add("edit-button");
-
-    editButton.addEventListener("click", () => {
-      window.location.href = `/post/edit/?id=${post.id}`;
-    });
 
     deleteButton.classList.add("delete-button");
 
