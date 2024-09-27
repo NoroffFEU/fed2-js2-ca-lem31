@@ -1,5 +1,4 @@
 import { authGuard } from "../../utilities/authGuard.js";
-import { API_KEY } from "../../api/constants.js";
 import { displayPostIDInURLOnEditPage } from "../../ui/post/update.js";
 import { logout } from "../../ui/global/logout.js";
 import { deletePost } from "../../ui/post/delete.js";
