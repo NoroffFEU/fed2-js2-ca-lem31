@@ -63,9 +63,6 @@ export class CreateMyPostsElements extends CreateAllPostElements {
     INDIVIDUAL_POST_CONTAINER.dataset.id = post.id;
 
     editButton.addEventListener("click", (event) => {
-      // const POST_ID = event.target.closest(".my-post").dataset.id;
-      // window.location.href = `/post/edit/?id=${POST_ID}`;
-
       displayPostIDInURLOnEditPage(event);
     });
     deleteButton.dataset.id = post.id;
