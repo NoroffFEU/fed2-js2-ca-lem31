@@ -126,7 +126,8 @@ export class CreateMyPostsElements extends CreateAllPostElements {
 }
 
 /**
- * Fetches all posts from the API and displays the latest 12
+ * Fetches all posts with the tag "MEYERAPP" from the API
+ * and displays the latest 12 posts
  * on the home page by slicing the data array.
  * @function getAllPosts
  * @returns {void}
