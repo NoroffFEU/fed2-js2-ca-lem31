@@ -43,3 +43,4 @@ export function displayUpdateProfileForm() {
 
 UPDATE_PROFILE_BUTTON.addEventListener("click", displayUpdateProfileForm);
 CANCEL_BUTTON.addEventListener("click", closeUpdateProfileForm);
+PROFILE_FORM.style.display = "none";
