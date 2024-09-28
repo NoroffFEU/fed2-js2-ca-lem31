@@ -41,7 +41,6 @@ export async function getUserPosts() {
     }
 
     const data = await RESPONSE.json();
-    console.log("Fetched data:", data);
 
     const posts = data.data || [];
 
