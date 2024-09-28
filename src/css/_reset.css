@@ -10,3 +10,27 @@ body {
   box-sizing: border-box;
   margin: 0;
 }
+
+#posts-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.individual-post-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.post-image {
+  width: 500px;
+}
