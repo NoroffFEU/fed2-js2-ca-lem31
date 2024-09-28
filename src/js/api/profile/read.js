@@ -92,6 +92,9 @@ function displayUserProfile(PROFILE) {
   const NUMBER_OF_FOLLOWERS = document.createElement("p");
   const NUMBER_FOLLOWING = document.createElement("p");
 
+  BANNER.classList.add("profile-banner");
+  AVATAR.classList.add("profile-avatar");
+
   USER_PROFILE.appendChild(USER_NAME);
   USER_PROFILE.appendChild(USER_EMAIL);
   USER_PROFILE.appendChild(BIO);
