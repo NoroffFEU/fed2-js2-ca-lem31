@@ -15,12 +15,77 @@
     <a href="/">Home</a>
     <a href="/post/create/">Create Post</a>
 
+    <form name="updateProfile">
+      <div>
+        <label for="user-name">Username</label>
+        <input
+          class="update-profile-input"
+          id="user-name"
+          type="text"
+          name="user-name"
+          required
+          autocomplete="user-name"
+          title="Please enter a Username"
+        />
+      </div>
+
+      <div>
+        <label for="user-email">Body</label>
+        <input
+          class="update-profile-input"
+          id="user-email"
+          type="text"
+          name="user-email"
+          required
+          maxlength="100"
+          autocomplete="user-email"
+          pattern="^[\w\-.]+@(stud\.)?noroff\.no$"
+          title="Please enter a valid noroff.no or stud.noroff.no address"
+        />
+      </div>
+
+      <div>
+        <label for="user-bio">Bio</label>
+        <input
+          type="text"
+          id="user-bio"
+          name="user-bio"
+          autocomplete="user-bio"
+          title=" Please enter a bio"
+        />
+      </div>
+
+      <div>
+        <label for="profile-banner">Profile Banner</label>
+        <input
+          type="url"
+          id="profile-banner"
+          name="profile-banner"
+          optional
+          autocomplete="profile-banner"
+          title=" Please enter a url for your profile banner"
+        />
+      </div>
+
+      <div>
+        <label for="profile-avatar">Profile Avatar</label>
+        <input
+          type="url"
+          id="profile-avatar"
+          name="profile-avatar"
+          optional
+          autocomplete="profile-avatar"
+          title=" Please enter a url for your profile avatar"
+        />
+      </div>
+
+      <button>Update Profile</button>
+
+      <div id="error-message" style="color: red"></div>
+    </form>
+
     <div id="my-profile">MY PROFILE</div>
     <h2>MY POSTS</h2>
     <div id="my-posts-container"></div>
-
-    <form name="updateProfile">
-      <button>Update Profile</button>
-    </form>
   </body>
 </html>
