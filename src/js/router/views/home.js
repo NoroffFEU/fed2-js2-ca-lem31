@@ -160,7 +160,9 @@ export async function getAllPosts() {
     }
 
     const data = await RESPONSE.json();
-    const posts = data.data.slice(-12);
+    const posts = data.data
+      .sort((a, b) => new Date(b.created) - new Date(a.created))
+      .slice(0, 12);
 
     localStorage.setItem("posts", JSON.stringify(data.data));
 
