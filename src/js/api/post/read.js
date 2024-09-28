@@ -1,5 +1,33 @@
 import { headers } from "../headers";
 
+/**
+ * @async
+ * @function getSinglePost
+ * @param {string} POST_ID
+ *
+ * @returns {Promise<void>} A promise that resolves when
+ * the individual post is fetched and displayed
+ * else rejects if an error occurs.
+ *
+ * @throws Will throw an error if the fetch request fails.
+ *
+ * @example
+ * //Example of how to call the getSinglePost function
+ * import { getSinglePost } from "./path/to/api/post/read.js";
+ *
+ * const PARAMS = new URLSearchParams(window.location.search);
+ * const POST_ID = PARAMS.get("id");
+ * getSinglePost(POST_ID);
+ *
+ * // OR
+ *
+ * import { getSinglePost } from "./path/to/api/post/read.js";
+ *
+ * const POST_ID = "123";
+ *
+ * getSinglePost(POST_ID);
+ *
+ */
 export async function getSinglePost(POST_ID) {
   try {
     const ACCESS_TOKEN = localStorage.getItem("accessToken");
@@ -21,16 +49,44 @@ export async function getSinglePost(POST_ID) {
     }
 
     const DATA = await RESPONSE.json();
-    console.log(DATA);
 
     const POST = JSON.stringify(DATA);
-    console.log(POST);
 
     displaySinglePost(POST);
   } catch (error) {
     console.error("Error fetching post:", error);
   }
 }
+
+/**
+ * @function displaySinglePost
+ * @param {string} post
+ *
+ * @returns {void} Displays the individual post on the page
+ *
+ * @example
+ * //Example of how to call the displaySinglePost function
+ *
+ *
+ * const DATA = await RESPONSE.json();
+ * const POST = JSON.stringify(DATA);
+ *
+ * displaySinglePost(POST);
+ *
+ * // OR
+ *
+ * const POST = {
+ * title: "My post",
+ * body: "This is my post",
+ * tags: ["tag1", "tag2"],
+ * media: {
+ * url: "https://example.com/image.jpg",
+ * alt: "Image description",
+ * }
+ * }
+ *
+ * displaySinglePost(POST);
+ */
 
 function displaySinglePost(post) {
   const CONTAINER_WRAPPER = document.getElementById("post-container-wrapper");
@@ -69,8 +125,6 @@ function displaySinglePost(post) {
   POST_CONTAINER.appendChild(POST_BODY);
   POST_CONTAINER.appendChild(POST_TAGS);
   POST_CONTAINER.appendChild(POST_IMAGE);
-
-  console.log(post);
 
   CONTAINER_WRAPPER.appendChild(POST_CONTAINER);
 }
