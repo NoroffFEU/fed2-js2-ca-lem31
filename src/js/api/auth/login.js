@@ -3,6 +3,28 @@ import { LOGIN_FORM } from "../constants.js";
 import { ERROR_MESSAGE } from "../constants.js";
 import { headers } from "../headers.js";
 
+/**
+ * @async
+ * @function login
+ * @param {*} event
+ *
+ * @returns {Promise<void>} A promise that resolves when
+ * the user is logged in or rejects if an error occurs.
+ *
+ * @throws Will throw an error if the fetch request fails.
+ *
+ * @example
+ * // Example of how to call the login function
+ * import { login } from "./path/to/api/auth/login.js";
+ *
+ * LOGIN_FORM.addEventListener("submit", login);
+ *
+ * // OR
+ *
+ * const LOGIN_BUTTON = document.getElementById("login-button");
+ * LOGIN_BUTTON.addEventListener("click", login);
+ */
+
 export async function login(event) {
   event.preventDefault();
 
@@ -24,7 +46,6 @@ export async function login(event) {
       localStorage.setItem("user", JSON.stringify(INFO));
       window.location.href = "/profile/";
 
-      console.log("Full Response Data:", INFO);
       if (INFO.error) {
         ERROR_MESSAGE.innerHTML =
           "Invalid email or password, please try again.";
