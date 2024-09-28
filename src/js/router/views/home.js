@@ -33,11 +33,14 @@ logout();
 export class CreateAllPostElements {
   constructor(post, container) {
     const INDIVIDUAL_POST_CONTAINER = document.createElement("div");
+    INDIVIDUAL_POST_CONTAINER.classList.add("individual-post-box");
 
     const POST_TITLE = document.createElement("h2");
     const POST_BODY = document.createElement("p");
     const POST_TAGS = document.createElement("p");
     const POST_IMAGE = document.createElement("img");
+
+    POST_IMAGE.classList.add("post-image");
 
     const VIEW_POST_BUTTON = document.createElement("button");
     VIEW_POST_BUTTON.textContent = "View post";
