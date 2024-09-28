@@ -1,5 +1,21 @@
 import { headers } from "../headers.js";
 
+/**
+ * @async
+ * @function populateEditForm
+ * @returns {Promise<void>} A promise that resolves
+ * when the form is populated with the post data or
+ * rejects the request if an error occurs.
+ * @throws Will throw an error if the fetch request fails.
+ *
+ * @example
+ * // Example of how to call the populateEditForm function
+ * import { populateEditForm }
+ * from "./path/to/api/post/update.js";
+ *
+ * populateEditForm();
+ */
+
 export async function populateEditForm() {
   const urlParams = new URLSearchParams(window.location.search);
   const postId = urlParams.get("id");
@@ -25,6 +41,16 @@ export async function populateEditForm() {
   }
 }
 
+/**
+ * @function updatePost
+ * @returns {void}
+ * @example
+ * // Example of how to call the updatePost function
+ *
+ * import { updatePost } from "./path/to/api/post/update.js";
+ *
+ * updatePost();
+ */
 export function updatePost() {
   document
     .querySelector("#update-post-button")
