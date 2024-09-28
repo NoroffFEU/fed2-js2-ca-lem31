@@ -34,9 +34,7 @@ export async function getAPIKey() {
 
     if (RESPONSE.ok) {
       const DATA = await RESPONSE.json();
-      console.log("API Key DATA:", DATA);
       localStorage.setItem("apiKey", DATA.key);
-      console.log("API Key:", DATA.key);
     } else {
       const ERROR_MESSAGE = await RESPONSE.text();
       console.error("Error:", RESPONSE.status, ERROR_MESSAGE);
