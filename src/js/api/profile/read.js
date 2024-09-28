@@ -42,8 +42,6 @@ export async function getUserProfile() {
     const PROFILE = data.data || {};
 
     displayUserProfile(PROFILE);
-
-    console.log("Fetched data:", data);
   } catch (error) {
     console.error("Error fetching profile:", error);
   }
