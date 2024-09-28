@@ -4,8 +4,6 @@ export const API_KEY = "25afc7c1-31c2-43ed-9dac-bbb6249bb706";
 
 export const API_BASE = "https://v2.api.noroff.dev";
 
-export const API_AUTH = `${API_BASE}/auth`;
-
 export const API_PROFILE = "https://v2.api.noroff.dev/social/profiles/";
 
 export const API_AUTH_LOGIN = "https://v2.api.noroff.dev/auth/login";
