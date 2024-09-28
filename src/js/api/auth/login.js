@@ -4,6 +4,9 @@ import { ERROR_MESSAGE } from "../constants.js";
 import { headers } from "../headers.js";
 
 /**
+ * Fetches data from the login form and sends it to the
+ * API to login a user.
+ *
  * @async
  * @function login
  * @param {*} event
