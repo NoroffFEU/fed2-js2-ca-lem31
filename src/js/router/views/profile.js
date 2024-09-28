@@ -10,6 +10,19 @@ import { closeUpdateProfileForm } from "../../api/profile/update.js";
 
 authGuard();
 
+/**
+ * Fetches the user's posts from the API and displays them on the page.
+ * @async
+ * @function getUserPosts
+ * @returns {Promise<void>}
+ *
+ * @throws {Error} No access token found. Please log in.
+ * @throws {Error} HTTP error! status: ${RESPONSE.status || "unknown"}
+ *
+ * @example
+ * //Example of how to call the function
+ * getUserPosts();
+ */
 export async function getUserPosts() {
   try {
     const ACCESS_TOKEN = localStorage.getItem("accessToken");
