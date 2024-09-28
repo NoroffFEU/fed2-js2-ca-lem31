@@ -20,6 +20,10 @@ const USER_NAME = JSON.parse(localStorage.getItem("user")) || {};
 
 const NAME = USER_NAME.name || "defaultName";
 
+export const API_KEY_NAME = { name: "my cool api key" };
+
+export const API_KEY_ENDPOINT = "https://v2.api.noroff.dev/auth/create-api-key";
+
 export const API_SOCIAL = `${API_BASE}/social`;
 export const USER_POSTS_API = `https://v2.api.noroff.dev/social/profiles/${NAME}/posts`;
 
