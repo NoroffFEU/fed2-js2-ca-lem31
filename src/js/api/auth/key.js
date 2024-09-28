@@ -1,16 +1,13 @@
-export const apiKeyAPI = "https://v2.api.noroff.dev/auth/create-api-key";
-
-const apiKeyName = { name: "my cool api key" };
+import { headers } from "../headers";
+import { API_KEY_NAME } from "../constants";
+import { API_KEY_ENDPOINT } from "../constants";
 
 export async function getAPIKey() {
   try {
-    const RESPONSE = await fetch(apiKeyAPI, {
+    const RESPONSE = await fetch(API_KEY_ENDPOINT, {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${authToken}`,
-      },
-      body: JSON.stringify(apiKeyName),
+      headers: headers(),
+      body: JSON.stringify(API_KEY_NAME),
     });
 
     if (RESPONSE.ok) {
@@ -26,11 +23,3 @@ export async function getAPIKey() {
     console.error("Error:", error);
   }
 }
-
-getAPIKey();
-
-//ACCESS TOKEN constants
-
-const getAuthToken = localStorage.getItem("accessToken");
-
-export const authToken = getAuthToken;
