@@ -1,8 +1,30 @@
 import { CREATE_POST_API } from "../constants.js";
 import { ERROR_MESSAGE } from "../constants.js";
 import { headers } from "../headers.js";
+import { CREATE_POST_FORM } from "../constants.js";
 
-const CREATE_POST_FORM = document.getElementById("create-form");
+/**
+ * @async
+ * @function getCreatePostDataAndSendToAPI
+ * @param {*} event
+ *
+ * @returns {Promise<void>} A promise that resolves when
+ * the post is created or the request is rejected
+ * if an error occurs.
+ *
+ * @throws Will throw an error if the fetch request fails.
+ *
+ * @example
+ * // Example of how to call the getCreatePostDataAndSendToAPI
+ * function
+ * import { getCreatePostDataAndSendToAPI }
+ * from "./path/to/api/post/create.js";
+ *
+ * const CREATE_POST_FORM = document.getElementById("create-post-form");
+ *
+ * CREATE_POST_FORM.addEventListener("submit",
+ * getCreatePostDataAndSendToAPI);
+ */
 
 export async function getCreatePostDataAndSendToAPI(event) {
   event.preventDefault();
@@ -13,6 +35,20 @@ export async function getCreatePostDataAndSendToAPI(event) {
     handleError(error);
   }
 }
+
+/**
+ * @function createRequestBody
+ * @param {*} CREATE_POST_FORM
+ * @returns  {Object} A request body object
+ *
+ * @example
+ * // Example of how to call the createRequestBody function
+ * import { createRequestBody } from "./path/to/api/post/create.js";
+ *
+ * const CREATE_POST_FORM = document.getElementById("create-post-form");
+ *
+ * const REQUEST_BODY = createRequestBody(CREATE_POST_FORM);
+ */
 
 function createRequestBody(CREATE_POST_FORM) {
   const FORM_OBJECT = new FormData(CREATE_POST_FORM);
@@ -28,6 +64,35 @@ function createRequestBody(CREATE_POST_FORM) {
     },
   };
 }
+
+/**
+ * @async
+ * @function sendRequestToAPI
+ * @param {*} CREATE_POST_REQUEST_BODY
+ *
+ * @returns {Promise<void>} A promise that resolves when
+ * the post is created or the request is rejected
+ *  if an error occurs.
+ *
+ * @throws Will throw an error if the fetch request fails.
+ *
+ * @example
+ *
+ * // Example of how to call the sendRequestToAPI function
+ * import { sendRequestToAPI }
+ * from "./path/to/api/post/create.js";
+ *
+ * const CREATE_POST_REQUEST_BODY = {
+ *  title: "My post",
+ * body: "This is my post",
+ * tags: ["tag1", "tag2"],
+ * media: {
+ * url: "https://example.com/image.jpg",
+ * alt: "Image description",
+ * }
+ *
+ * sendRequestToAPI(CREATE_POST_REQUEST_BODY);
+ */
 
 async function sendRequestToAPI(CREATE_POST_REQUEST_BODY) {
   const ACCESS_TOKEN = localStorage.getItem("accessToken");
