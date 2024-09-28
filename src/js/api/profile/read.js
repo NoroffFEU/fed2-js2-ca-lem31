@@ -1,6 +1,25 @@
 import { headers } from "../headers.js";
 import { API_PROFILE } from "../constants.js";
 
+/**
+ * Fetches the user profile from the API
+ * and displays it on the page.
+ *
+ * @async
+ * @function getUserProfile
+ * @returns {Promise<void>} A promise that resolves when the
+ * user profile is fetched and displayed on the page
+ * or rejects the request if an error occurs.
+ * @throws Will throw an error if the fetch request fails.
+ *
+ *
+ * @example
+ * // Example of how to call the getUserProfile function
+ * import { getUserProfile }
+ * from "./path/to/api/profile/read.js";
+ *
+ * getUserProfile();
+ */
 export async function getUserProfile() {
   try {
     const USER = JSON.parse(localStorage.getItem("user"));
@@ -26,9 +45,43 @@ export async function getUserProfile() {
 
     console.log("Fetched data:", data);
   } catch (error) {
-    console.error("Error fetching posts:", error);
+    console.error("Error fetching profile:", error);
   }
 }
+
+/**
+ * Displays the user profile on the page by dynamically creating
+ * the necessary HTML elements and setting the innerHTML to the
+ * user profile data from the API.
+ *
+ * @function displayUserProfile
+ * @param {object} PROFILE The user profile data from the API
+ *
+ * @returns {void}
+ *
+ * @example
+ * // Example of how to call the displayUserProfile function
+ * import { displayUserProfile }
+ * from "./path/to/api/profile/read.js";
+ *
+ * const data = await RESPONSE.json();
+ * const PROFILE = data.data || {};
+ *
+ * //OR
+ *
+ * const PROFILE = {
+ * name: "John Doe",
+ * email: "JohnDoe@stud.noroff.no",
+ * bio: "I am a student at Noroff",
+ * banner: {
+ * url: "path/to/banner.jpg"
+ * },
+ * avatar: {
+ * url: "path/to/avatar.jpg"
+ * };
+ *
+ * displayUserProfile(PROFILE);
+ */
 
 function displayUserProfile(PROFILE) {
   const USER_PROFILE = document.getElementById("my-profile");
