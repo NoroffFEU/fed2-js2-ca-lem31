@@ -3,6 +3,8 @@ import { USER_POSTS_API } from "../../api/constants.js";
 import { CreateMyPostsElements } from "./home.js";
 import { headers } from "../../api/headers.js";
 import { getUserProfile } from "../../api/profile/read.js";
+import { displayUpdateProfileForm } from "../../api/profile/update.js";
+import { closeUpdateProfileForm } from "../../api/profile/update.js";
 
 //MY POSTS CONSTANTS AND FUNCTIONS
 
@@ -50,3 +52,6 @@ export async function getUserPosts() {
 
 getUserProfile();
 getUserPosts();
+
+displayUpdateProfileForm();
+closeUpdateProfileForm();
