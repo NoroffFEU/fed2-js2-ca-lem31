@@ -1,6 +1,14 @@
+/**
+ * This function removes the user token from local storage
+ * and redirects the user to the login page.
+ * @function removeTokenFromStorage
+ * @returns {void}
+ * @example
+ * removeTokenFromStorage();
+ */
+
 export function removeTokenFromStorage() {
-  // Clear user session or token
   localStorage.removeItem("accessToken");
-  // Redirect to login page
+
   window.location.href = "/auth/login/";
 }
