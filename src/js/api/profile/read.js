@@ -1,8 +1,6 @@
 import { headers } from "../headers.js";
 import { API_PROFILE } from "../constants.js";
 
-export async function readProfiles(limit, page) {}
-
 export async function getUserProfile() {
   try {
     const USER = JSON.parse(localStorage.getItem("user"));
