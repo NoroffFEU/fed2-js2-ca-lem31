@@ -48,6 +48,6 @@ export const CREATE_POST_FORM = document.getElementById("create-form");
 export const UPDATE_PROFILE_BUTTON = document.getElementById(
   "update-profile-button"
 );
+
 export const PROFILE_FORM = document.getElementById("Update-Profile");
 export const CANCEL_BUTTON = document.getElementById("cancel-button");
-PROFILE_FORM.style.display = "none";
