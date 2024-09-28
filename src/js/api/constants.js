@@ -40,3 +40,7 @@ export const REG_FORM = document.getElementById("register-form");
 //LOGIN PAGE CONSTANTS
 
 export const LOGIN_FORM = document.getElementById("login-form");
+
+//CREATE POST PAGE CONSTANTS
+
+export const CREATE_POST_FORM = document.getElementById("create-form");
