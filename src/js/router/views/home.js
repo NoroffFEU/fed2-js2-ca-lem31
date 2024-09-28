@@ -8,6 +8,28 @@ authGuard();
 logout();
 
 // Create all posts elements class/function
+
+/**
+ * Creates the html elements for all posts on the home page.
+ * @class CreateAllPostElements
+ * @param {object} post - The post object from the API.
+ * @param {HTMLElement} container - The container to append the 
+ * post elements to.
+ * @returns {HTMLElement} The container with the post elements.
+ * 
+ * @example
+ * async function fetchPosts() {
+ * const response = await fetch("https://v2.api.noroff.dev/social/posts");
+ * const data = await response.json();
+ * const posts = data.data;
+ * const postsContainer = document.getElementById("posts-container");
+ * posts.forEach(post => {
+ * new CreateAllPostElements(post, postsContainer);
+ * }
+ * 
+ 
+ */
+
 export class CreateAllPostElements {
   constructor(post, container) {
     const INDIVIDUAL_POST_CONTAINER = document.createElement("div");
@@ -51,7 +73,24 @@ export class CreateAllPostElements {
   }
 }
 
-//Create my posts elements class/function
+/**
+ * Creates the html elements for the posts on the my posts page.
+ * @class CreateMyPostsElements
+ * @param {object} post - The post object from the API.
+ * @param {HTMLElement} container - The container to append the
+ * post elements to.
+ * @returns {HTMLElement} The container with the post elements.
+ *
+ * @example
+ * async function fetchPosts() {
+ * const response = await fetch("https://v2.api.noroff.dev/social/posts");
+ * const data = await response.json();
+ * const posts = data.data;
+ * const postsContainer = document.getElementById("posts-container");
+ * posts.forEach(post => {
+ * new CreateMyPostsElements(post, postsContainer);
+ * }
+ */
 
 export class CreateMyPostsElements extends CreateAllPostElements {
   constructor(post, container) {
@@ -85,7 +124,20 @@ export class CreateMyPostsElements extends CreateAllPostElements {
     return INDIVIDUAL_POST_CONTAINER;
   }
 }
-//GET POSTS FUNCTION
+
+/**
+ * Fetches all posts from the API and displays the latest 12
+ * on the home page by slicing the data array.
+ * @function getAllPosts
+ * @returns {void}
+ *
+ * @throws {Error} No access token found. Please log in.
+ * @throws {Error} HTTP error! status: ${RESPONSE.status || "unknown"}
+ *
+ * @example
+ * //Example of how to call the function
+ * getAllPosts();
+ */
 
 export async function getAllPosts() {
   try {
@@ -108,7 +160,6 @@ export async function getAllPosts() {
     }
 
     const data = await RESPONSE.json();
-    console.log("Fetched data:", data);
     const posts = data.data.slice(-12);
 
     localStorage.setItem("posts", JSON.stringify(data.data));
