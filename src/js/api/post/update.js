@@ -1,6 +1,10 @@
 import { headers } from "../headers.js";
 
 /**
+ *
+ * Fetches the post data from the API and then
+ * populates the edit form with the post data.
+ *
  * @async
  * @function populateEditForm
  * @returns {Promise<void>} A promise that resolves
@@ -42,6 +46,9 @@ export async function populateEditForm() {
 }
 
 /**
+ * Gets post ID from URL and updates the post using the
+ * form data.
+ *
  * @function updatePost
  * @returns {void}
  * @example

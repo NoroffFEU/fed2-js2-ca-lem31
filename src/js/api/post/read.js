@@ -1,6 +1,8 @@
 import { headers } from "../headers";
 
 /**
+ * Fetches an individual post from the API, using the
+ * POST_ID parameter and displays it on the post page.
  * @async
  * @function getSinglePost
  * @param {string} POST_ID
@@ -59,6 +61,10 @@ export async function getSinglePost(POST_ID) {
 }
 
 /**
+ * Displays an individual post on the post page by parsing
+ * the post data and dynamically creating the
+ * necessary HTML elements.
+ *
  * @function displaySinglePost
  * @param {string} post
  *

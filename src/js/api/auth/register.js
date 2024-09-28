@@ -7,6 +7,9 @@ import { ERROR_MESSAGE } from "../constants.js";
 import { headers } from "../headers.js";
 
 /**
+ * Fetches data from the registration form
+ * and sends it to the API to register a new user.
+ *
  * @async
  * @function register
  * @param {*} event

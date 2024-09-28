@@ -3,6 +3,9 @@ import { handleError } from "./create.js";
 import { headers } from "../headers.js";
 
 /**
+ * Removes a post from the API by sending a DELETE request to
+ * the GET_POST_API endpoint with the post ID as a parameter.
+ *
  * @async
  * @function removePostFromAPI
  * @param {string} postId

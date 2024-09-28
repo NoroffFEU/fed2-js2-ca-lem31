@@ -4,6 +4,9 @@ import { headers } from "../headers.js";
 import { CREATE_POST_FORM } from "../constants.js";
 
 /**
+ * Fetches the post data from the create post form
+ * and sends it to the API to create a new post.
+ *
  * @async
  * @function getCreatePostDataAndSendToAPI
  * @param {*} event
@@ -37,6 +40,9 @@ export async function getCreatePostDataAndSendToAPI(event) {
 }
 
 /**
+ * Creates a request body object using the form data from the
+ * create post form.
+ *
  * @function createRequestBody
  * @param {*} CREATE_POST_FORM
  * @returns  {Object} A request body object
