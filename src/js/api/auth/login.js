@@ -17,6 +17,8 @@ import { headers } from "../headers.js";
  * // Example of how to call the login function
  * import { login } from "./path/to/api/auth/login.js";
  *
+ * const LOGIN_FORM = document.getElementById("login-form");
+ *
  * LOGIN_FORM.addEventListener("submit", login);
  *
  * // OR
