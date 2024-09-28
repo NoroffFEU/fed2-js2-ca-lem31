@@ -6,6 +6,33 @@ import { ERROR_MESSAGE } from "../constants.js";
 
 import { headers } from "../headers.js";
 
+/**
+ * @async
+ * @function register
+ * @param {*} event
+ *
+ * @returns {Promise<void>} A promise that resolves when
+ * the user is registered or rejects if an error occurs.
+ *
+ * @throws Will throw an error if the fetch request fails.
+ *
+ * @example
+ * // Example of how to call the register function
+ * import { register } from "./path/to/api/auth/register.js";
+ *
+ * const REG_FORM = document.getElementById("register-form");
+ *
+ * REG_FORM.addEventListener("submit", register);
+ *
+ * // OR
+ *
+ * const REGISTER_BUTTON = document.getElementById("register-button");
+ * REGISTER_BUTTON.addEventListener("click", register);
+ *
+ *
+ *
+ */
+
 export async function register(event) {
   event.preventDefault();
 
@@ -24,13 +51,9 @@ export async function register(event) {
       headers: headers(),
       body: JSON.stringify(REQUEST_BODY_REG),
     });
-    const DATA = await RESPONSE.json();
-
-    console.log("Full RESPONSE DATA:", DATA);
 
     if (RESPONSE.ok) {
       alert("Registration successful");
-      console.log(DATA);
       window.location.href = "/auth/login/";
       ERROR_MESSAGE.textContent = "";
     } else if (RESPONSE.status === 400) {
