@@ -1,6 +1,17 @@
-// This function controls which JavaScript file is loaded on which page
-// In order to add additional pages, you will need to implement them below
-// You may change the behaviour or approach of this file if you choose
+/**
+ * This function controls which JavaScript file is loaded on which page
+ * @async
+ * @function router
+ * @param {string} pathname - The path of the current page.
+ * @returns {Promise<void>}
+ *
+ * @example
+ * // Example of how to call the function
+ * router();
+ *
+ *
+ */
+
 export default async function router(pathname = window.location.pathname) {
   switch (pathname) {
     case "/":
