@@ -32,8 +32,8 @@ body {
 }
 
 .post-image {
-  width: 480px;
-  height: 420px;
+  width: 50%;
+  height: 50%;
 }
 
 .profile-banner {
@@ -50,4 +50,25 @@ body {
   height: 50px;
   border-radius: 50%;
   background-color: #ffffff;
+}
+
+.update-logout-buttons-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+
+#post-container-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.post-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
 }
