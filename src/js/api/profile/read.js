@@ -117,6 +117,7 @@ function displayUserProfile(PROFILE) {
       ? PROFILE.avatar.url
       : "../../../ui/images/default-avatar.jpg";
   NUMBER_OF_POSTS.innerHTML = PROFILE.posts ? PROFILE.posts.length : 0;
+
   NUMBER_OF_FOLLOWERS.innerHTML = PROFILE.followers
     ? PROFILE.followers.length
     : 0;
