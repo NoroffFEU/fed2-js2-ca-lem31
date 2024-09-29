@@ -116,6 +116,8 @@ function displaySinglePost(post) {
   const POST_TAGS = document.createElement("p");
   const POST_IMAGE = document.createElement("img");
 
+  POST_IMAGE.className = "post-image";
+
   POST_TITLE.textContent = post.data.title || "No title available";
   POST_BODY.textContent = post.data.body || "No content available";
   POST_TAGS.textContent = Array.isArray(post.data.tags)
