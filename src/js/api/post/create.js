@@ -60,14 +60,14 @@ function createRequestBody(CREATE_POST_FORM) {
   const FORM_OBJECT = new FormData(CREATE_POST_FORM);
   const FORM_DATA = Object.fromEntries(FORM_OBJECT);
   const TAGS_ARRAY = FORM_DATA.tags.split(",").map((tag) => tag.trim());
+  const media = FORM_DATA.media
+    ? { url: FORM_DATA.media, alt: FORM_DATA.alt }
+    : null;
   return {
     title: FORM_DATA.title,
     body: FORM_DATA.body,
     tags: TAGS_ARRAY,
-    media: {
-      url: FORM_DATA.media,
-      alt: FORM_DATA.alt,
-    },
+    media: media,
   };
 }
 
