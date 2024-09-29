@@ -10,10 +10,17 @@
   <body>
     <h1>Profile</h1>
 
-    <button id="logout-button">Logout</button>
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/post/create/">Create Post</a></li>
+      </ul>
+    </nav>
 
-    <a href="/">Home</a>
-    <a href="/post/create/">Create Post</a>
+    <div class="update-logout-buttons-container">
+      <button id="update-profile-button">Update Profile</button>
+      <button id="logout-button">Logout</button>
+    </div>
 
     <div id="Update-Profile">
       <form name="updateProfile">
@@ -84,8 +91,6 @@
     </div>
 
     <div id="error-message" style="color: red"></div>
-
-    <button id="update-profile-button">Update Profile</button>
 
     <div id="my-profile">MY PROFILE</div>
     <h2>MY POSTS</h2>
