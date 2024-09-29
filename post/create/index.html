@@ -1,16 +1,85 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Noroff FED2 JS2 CA</title>
-    <script type="module" src="/src/app.js"></script>
+    <script type="module" src="../../src/app.js" defer></script>
   </head>
-  <body>
-    <h1>Create Post</h1>
 
-    <form name="createPost">
-      <button>Create Post</button>
-    </form>
+  <body>
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/profile/">My Profile</a></li>
+      </ul>
+    </nav>
+    <h1>Create A Post</h1>
+    <form name="createPost" id="create-form" method="post">
+      <div>
+        <label for="title">Title</label>
+        <input
+          class="createpost-input"
+          id="title"
+          type="text"
+          name="title"
+          required
+          maxlength="20"
+            pattern="^[\w\s\W]+$"
+          autocomplete="title"
+          title="Please enter a title using only letters and numbers"
+        />
+      </div>
+
+      <div>
+        <label for="body">Body</label>
+        <input
+          class="createpost-input"
+          id="body"
+          type="text"
+          name="body"
+          required
+          maxlength="100"
+          pattern="^[\w\s\W]+$"
+          autocomplete="body"
+          title="Please enter body using only letters and numbers"
+        />
+      </div>
+
+      <div>
+        <label for="tags">Tags</label>
+        <input type="text"
+        id="tags"
+        name="tags"
+        autocomplete="tags"
+        title=" Please enter tags"/>
+      </div>
+
+      <div>
+        <label for="media">Media</label>
+        <input type="url"
+        id="media"
+        name="media"
+        optional
+        autocomplete="media"
+        title=" Please enter media url"/>
+      </div>
+
+
+      <div>
+        <label for="alt">alt</label>
+        <input type="alt"
+        id="alt"
+        name="alt"
+        optional
+        autocomplete="alt"
+        title=" Please enter media alt text"/>
+      </div>
+
+      <button id="createpost-button">Create Post</button>
+
+      <div id="error-message" style="color: red"></div>
+
   </body>
 </html>
